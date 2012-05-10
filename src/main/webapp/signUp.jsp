@@ -1,5 +1,7 @@
+<%@page import="ie.cit.cloudapp.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +9,7 @@
 <title>Sign Up</title>
 </head>
 <body>
+<jsp:useBean id="repo" class="ie.cit.cloudapp.UserRepository" scope="application"></jsp:useBean>
 	<div id="head">
 		<h1>
 			<b>The Chronicle - Sign Up</b>
@@ -24,10 +27,12 @@
 		</table>
 	</div>
 	<div id="form">
-		<c:if test="${! empty param.firstName }">
+		<c:if test="${(! empty param.firstName) && (! empty param.surname) && (! empty param.email) }"> 
 			<%
 				User user = new User();
 				user.setFirstName(request.getParameter("firstName"));
+				user.setSurname(request.getParameter("surname"));
+				user.setEmail(request.getParameter("email"));
 				repo.addUser(user);
 			%>
 
@@ -37,9 +42,13 @@
 			<table border=1>
 				<tr>
 					<td>First Name</td>
+					<td>Surname</td>
+					<td>Email</td>
 				</tr>
 				<tr>
 					<td>${user.firstName}</td>
+					<td>${user.surname}</td>
+					<td>${user.email}</td>
 				</tr>
 			</table>
 		</c:forEach>
