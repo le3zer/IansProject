@@ -5,25 +5,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="styles/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sign Up</title>
 </head>
 <body>
 	<div id="head">
 		<h1>
-			<b>The Chronicle - Sign Up 3</b>
+			<b>Dream Team - Sign Up</b>
 		</h1>
 		<p><%=new java.util.Date()%></p>
 	</div>
 	<div id="menu">
 		<table align="center" cellpadding="5">
 			<tr>
-				<td><a href="main.jsp">Home</a></td>
-				<td><a href="news.jsp">News</a></td>
-				<td><a href="signUp.jsp">Sign Up</a></td>
-				<td><a href="reviews.jsp">Reviews</a></td>
+				<td><a href="home.jsp">Home</a></td>
+				<td><a href="users.html">Sign Up</a></td>
 			</tr>
 		</table>
+	</div>
+	
+		<h2>Registration</h2>
+		<form method="post">
+		<table>
+				<tr>
+					<td>First Name:</td>
+					<td><input name="firstName"></td>
+				</tr>
+				<tr>
+					<td>Surname:</td>
+					<td><input name="surname"></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input name="email"></td>
+				</tr>
+				<tr>
+					<td><input type="submit"></td>
+				</tr>
+		</table>
+		</form>
 	</div>
 	<div id="form">
 		<c:forEach items="${users}" var="user" varStatus="row">
@@ -49,27 +70,6 @@
 			</c:otherwise>
 			</c:choose>
 		</c:forEach>
-		<h2>Registration</h2>
-		<form method="post">
-		<table>
-				<tr>
-					<td>First Name:</td>
-					<td><input name="firstName"></td>
-				</tr>
-				<tr>
-					<td>Surname:</td>
-					<td><input name="surname"></td>
-				</tr>
-				<tr>
-					<td>Email:</td>
-					<td><input name="email"></td>
-				</tr>
-				<tr>
-					<td><input type="submit"></td>
-				</tr>
-		</table>
-		</form>
-	</div>
 
 </body>
 </html>

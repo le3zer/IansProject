@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-   xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
-    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
-     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="repo" class="ie.cit.cloudapp.JdbcUserRepository" >
+		<constructor-arg ref="dataSource"></constructor-arg>
+	</bean>
+	<bean id="team" class="ie.cit.cloudapp.JdbcPlayerRepository" >
 		<constructor-arg ref="dataSource"></constructor-arg>
 	</bean>
 	
@@ -25,4 +31,15 @@
  	 
  	<bean class="ie.cit.cloudapp.TracingAspect" />
 	
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/*.html"
+			access="ROLE_USER" />
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:user-service properties="classpath:user.properties" />
+		</security:authentication-provider>
+	</security:authentication-manager>
 </beans>

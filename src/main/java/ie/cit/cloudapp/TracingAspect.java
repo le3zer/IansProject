@@ -12,8 +12,14 @@ public class TracingAspect {
 	
 	// [Modifiers] ReturnType [ClassType] MethodName ([Arguments]) [throws Exception]
 	
-	@Before("execution(* ie.cit.cloudapp.JdbcTodoRepository.*(..))")
-	public void traceMethod(JoinPoint point) {
+	@Before("execution(* ie.cit.cloudapp.JdbcUserRepository.*(..))")
+	public void traceMethod1(JoinPoint point) {
+	 String className = point.getTarget().getClass().getName();
+	 String methodName = point.getSignature().getName();
+	 log.trace("method invoked:"+className+"#"+methodName);
+		}
+	@Before("execution(* ie.cit.cloudapp.JdbcPlayerRepository.*(..))")
+	public void traceMethod2(JoinPoint point) {
 	 String className = point.getTarget().getClass().getName();
 	 String methodName = point.getSignature().getName();
 	 log.trace("method invoked:"+className+"#"+methodName);
