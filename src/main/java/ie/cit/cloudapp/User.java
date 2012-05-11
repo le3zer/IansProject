@@ -4,6 +4,7 @@ public class User {
 	private String firstName;
 	private String surname;
 	private String email;
+	private int id;
 	private boolean done;
 	
 	public String getFirstName() {
@@ -23,6 +24,13 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id){
+		this.id = id;
 	}
 	public boolean isDone() {
 		return done;

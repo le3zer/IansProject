@@ -9,10 +9,9 @@
 <title>Sign Up</title>
 </head>
 <body>
-<jsp:useBean id="repo" class="ie.cit.cloudapp.UserRepository" scope="session"></jsp:useBean>
 	<div id="head">
 		<h1>
-			<b>The Chronicle - Sign Up</b>
+			<b>The Chronicle - Sign Up 3</b>
 		</h1>
 		<p><%=new java.util.Date()%></p>
 	</div>
@@ -27,18 +26,14 @@
 		</table>
 	</div>
 	<div id="form">
-		<c:if test="${(! empty param.firstName) && (! empty param.surname) && (! empty param.email) }"> 
-			<%
-				User user = new User();
-				user.setFirstName(request.getParameter("firstName"));
-				user.setSurname(request.getParameter("surname"));
-				user.setEmail(request.getParameter("email"));
-				repo.addUser(user);
-			%>
-
-		</c:if>
-
-		<c:forEach items="${repo.users}" var="user" varStatus="row">
+		<c:forEach items="${users}" var="user" varStatus="row">
+			<c:choose>
+			<c:when test="${user.done}">
+			<del>${user.firstName}</del>
+			<del>${user.surname}</del>
+			<del>${user.email}</del>
+			</c:when>
+			<c:otherwise>
 			<table border=1>
 				<tr>
 					<td>First Name</td>
@@ -51,6 +46,8 @@
 					<td>${user.email}</td>
 				</tr>
 			</table>
+			</c:otherwise>
+			</c:choose>
 		</c:forEach>
 		<h2>Registration</h2>
 		<form method="post">

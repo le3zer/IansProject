@@ -1,0 +1,1 @@
+create table members(id serial, firstName varchar, surname varchar, email varchar, done boolean, primary key(id));
