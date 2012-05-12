@@ -25,7 +25,15 @@
 	</div>
 	
 	<div id="body">
-	
+	<div id="content">
+	<h3>Welcome to Dream Team</h3>
+	<p>This is a site for people to log in and create their own fantasy football team of all the players the that they like</p>		
+	</div>
+	</div>
+	<div id="footer">
+	<p>
+		Copyright (C) 2012 dreamTeam.com. All rights reserved
+	</p>
 	
 	</div>
 </body>

@@ -64,7 +64,7 @@ public class JdbcPlayerRepository {
 				player.setCm2(rs.getString("cm2"));
 				player.setLw(rs.getString("lw"));
 				player.setSt1(rs.getString("st1"));
-				player.setSt2(rs.getString("st1"));
+				player.setSt2(rs.getString("st2"));
 				player.setDone(rs.getBoolean("done"));
 				player.setId(rs.getInt("id"));
 				return player;

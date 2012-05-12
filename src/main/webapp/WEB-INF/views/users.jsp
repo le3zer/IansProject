@@ -45,7 +45,6 @@
 				</tr>
 		</table>
 		</form>
-	</div>
 	<div id="form">
 		<c:forEach items="${users}" var="user" varStatus="row">
 			<c:choose>
@@ -70,6 +69,13 @@
 			</c:otherwise>
 			</c:choose>
 		</c:forEach>
+		</div>
 
+<div id="footer">
+	<p>
+		Copyright (C) 2012 dreamTeam.com. All rights reserved
+	</p>
+	
+	</div>
 </body>
 </html>

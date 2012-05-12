@@ -11,11 +11,12 @@
 <title>Dream Team</title>
 </head>
 <body>
+<div id="head">
 <h1>Dream Team (Controller)</h1>
-<%= new java.util.Date()%>
+<p><%= new java.util.Date()%></p>
 
 <a href="j_spring_security_logout">Logout: <security:authentication property="principal.username"/></a>
-
+</div>
 
 <form method="post">
 		<table border=1>
@@ -149,6 +150,13 @@
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
+	
+	<div id="footer">
+	<p>
+		Copyright (C) 2012 dreamTeam.com. All rights reserved
+	</p>
+	
+	</div>
 
 	
 </body>
