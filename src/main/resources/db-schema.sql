@@ -1,2 +1,2 @@
 create table members(id serial, firstName varchar, surname varchar, email varchar, done boolean, primary key(id));
-create table store(id serial, name varchar, gk varchar, rb varchar, cb1 varchar, cb2 varchar, lb varchar, rw varchar, cm1 varchar, cm2 varchar, lw varchar, st1 varchar, st2 varchar, done boolean, primary key(id));
+create table store(id serial, name varchar, gk varchar, rb varchar, cb1 varchar, cb2 varchar, lb varchar, rw varchar, cm1 varchar, cm2 varchar, lw varchar, st1 varchar, st2 varchar, done boolean, owner varchar, primary key(id));

@@ -2,8 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,9 +13,9 @@
 <body>
 <h1>Dream Team (Controller)</h1>
 <%= new java.util.Date()%>
-<a href="j_spring_security_logout">Logout: <security:authentication
- 	   property="principal.username" />
- 	</a>
+
+<a href="j_spring_security_logout">Logout: <security:authentication property="principal.username"/></a>
+
 
 <form method="post">
 		<table border=1>
